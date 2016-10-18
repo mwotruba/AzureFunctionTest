@@ -1,0 +1,18 @@
+{
+  "bindings": [
+    {
+      "type": "eventHub",
+      "name": "outputEventHubMessage",
+      "path": "mw-openweathermap-ehub",
+      "connection": "mw-openweathermap-ehub",
+      "direction": "out"
+    },
+    {
+      "type": "timerTrigger",
+      "name": "myTimer",
+      "schedule": "0 0/10 * * * *",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
