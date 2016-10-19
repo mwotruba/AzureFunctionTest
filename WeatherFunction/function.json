@@ -15,7 +15,7 @@
     },
     {
       "type": "blob",
-      "name": "inputBlob",
+      "name": "cities",
       "path": "operweathermap/city.list.id.1",
       "connection": "mwfunctionrestcallerstor_STORAGE",
       "direction": "in"

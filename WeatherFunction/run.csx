@@ -5,15 +5,15 @@ private static readonly string Ratingen = @"707860, 519188, 1283378, 1270260, 70
 
 private static readonly string AppKey = "bbf5fb8c8b5733365893886826af5724";
 
-public static void Run(TimerInfo myTimer, string inputBlob, out string outputEventHubMessage, TraceWriter log)
+public static void Run(TimerInfo myTimer, string cities, out string outputEventHubMessage, TraceWriter log)
 {
     log.Info($"C# time triggered function called with pattern: {myTimer.Schedule} at {DateTime.Now}");
     log.Info(myTimer.FormatNextOccurrences(3));
 
-    if(inputBlob != null)
+    if(cities != null)
     {
-        log.Info($"inputBlob.Length={inputBlob.Length}");
-        log.Info($"inputBlob #cities={inputBlob.Split(',').Length}");
+        log.Info($"cities.Length={cities.Length}");
+        log.Info($"cities #cities={cities.Split(',').Length}");
     }
     
     // building URL
