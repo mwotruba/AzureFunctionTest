@@ -12,6 +12,13 @@
       "name": "myTimer",
       "schedule": "0 0/10 * * * *",
       "direction": "in"
+    },
+    {
+      "type": "blob",
+      "name": "inputBlob",
+      "path": "operweathermap/city.list.id.1",
+      "connection": "mwfunctionrestcallerstor_STORAGE",
+      "direction": "in"
     }
   ],
   "disabled": false
