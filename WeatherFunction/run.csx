@@ -40,4 +40,6 @@ public static void Run(TimerInfo myTimer, string cities, out string outputEventH
     wr.Close();
     reader.Close();
     ws.Dispose();    
+
+    // *
 }
