@@ -28,6 +28,8 @@ public static void Run(TimerInfo myTimer, string cities, out string outputEventH
     StreamReader reader = null;
     try
     {
+        log.Info($"HTTP GET => {ub.Uri}");
+
         // do the GET
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(ub.Uri);
         request.Method = "GET";
