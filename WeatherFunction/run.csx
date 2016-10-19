@@ -1,8 +1,6 @@
 using System;
 using System.Net;
 
-private static readonly string Ratingen = @"707860, 519188, 1283378, 1270260, 708546, 1283710, 529334, 1269750, 1283240, 703363" ;
-
 private static readonly string AppKey = "bbf5fb8c8b5733365893886826af5724";
 
 public static void Run(TimerInfo myTimer, string cities, out string outputEventHubMessage, TraceWriter log)
@@ -21,7 +19,7 @@ public static void Run(TimerInfo myTimer, string cities, out string outputEventH
     ub.Host = "api.openweathermap.org";
     ub.Path = "data/2.5/group";
     ub.Scheme = "http";
-    ub.Query = string.Format("appid={0}&id={1}", AppKey, Ratingen);
+    ub.Query = string.Format("appid={0}&id={1}", AppKey, cities);
 
     // do the GET
     HttpWebRequest request = (HttpWebRequest)WebRequest.Create(ub.Uri);
