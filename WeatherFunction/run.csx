@@ -23,26 +23,33 @@ public static void Run(TimerInfo myTimer, string cities, out string outputEventH
     //ub.Query = string.Format("appid={0}&id={1}", AppKey, cities);
     ub.Query = string.Format("appid={0}&bbox=-180,-90,180,90", AppKey);
     
+    WebResponse wr = null;
+    Stream ws = null;
+    StreamReader reader = null;
+    try
+    {
+        // do the GET
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(ub.Uri);
+        request.Method = "GET";
+        wr = request.GetResponse();
 
-    // do the GET
-    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(ub.Uri);
-    request.Method = "GET";
-    WebResponse wr = request.GetResponse();
-
-    // read response
-    Stream ws =  wr.GetResponseStream();
-    StreamReader reader = new StreamReader(ws);
-    string json = reader.ReadToEnd();
-    log.Info(json);
-    
-    // send message
-    outputEventHubMessage = json;
-            
-            
-    // close objects
-    wr.Close();
-    reader.Close();
-    ws.Dispose();    
-
-    // *
-}
+        // read response
+        ws =  wr.GetResponseStream();
+        reader = new StreamReader(ws);
+        string json = reader.ReadToEnd();
+        log.Info(json);
+        
+        // send message
+        outputEventHubMessage = json;
+    } catch(Excetion exc)
+    {
+      log.Error("Fehler in Funktion: {exc.Message}
+    }
+    finally
+    {            
+        // close objects
+        if(wr != null) wr.Close();
+        if(reader != null) reader.Close();
+        if(ws !=null) ws.Dispose();    
+    }
+}    
