@@ -21,7 +21,8 @@ public static void Run(TimerInfo myTimer, string cities, out string outputEventH
     ub.Path = "data/2.5/box/city";
     ub.Scheme = "http";
     //ub.Query = string.Format("appid={0}&id={1}", AppKey, cities);
-    ub.Query = string.Format("appid={0}&bbox=-180,-90,180,90", AppKey);
+    //ub.Query = string.Format("appid={0}&bbox=-180,-90,180,90", AppKey);
+    ub.Query = string.Format("appid={0}&bbox=-10,-10,10,10", AppKey);
     
     WebResponse wr = null;
     Stream ws = null;
