@@ -43,7 +43,7 @@ public static void Run(TimerInfo myTimer, string cities, out string outputEventH
         outputEventHubMessage = json;
     } catch(Exception exc)
     {
-      log.Error("Fehler in Funktion: {exc.Message}
+      log.Error($"Fehler in Funktion: {exc.Message}");
     }
     finally
     {            
