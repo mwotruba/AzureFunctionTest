@@ -13,7 +13,7 @@ public static void Run(TimerInfo myTimer, string inputBlob, out string outputEve
     if(inputBlob != null)
     {
         log.Info($"inputBlob.Length={inputBlob.Length}");
-        log.Info($"inputBlob #cities={inputBlob.Split(',').Length}
+        log.Info($"inputBlob #cities={inputBlob.Split(',').Length}");
     }
     
     // building URL
