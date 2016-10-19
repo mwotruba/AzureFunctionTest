@@ -41,6 +41,8 @@ public static void Run(TimerInfo myTimer, string cities, out string outputEventH
         
         // send message
         outputEventHubMessage = json;
+
+        log.Info($"alles Bestens!!!");
     } catch(Exception exc)
     {
       log.Error($"Fehler in Funktion: {exc.Message}");
