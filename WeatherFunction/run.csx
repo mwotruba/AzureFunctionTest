@@ -51,5 +51,7 @@ public static void Run(TimerInfo myTimer, string cities, out string outputEventH
         if(wr != null) wr.Close();
         if(reader != null) reader.Close();
         if(ws !=null) ws.Dispose();    
+
+        outputEventHubMessage = null;
     }
 }    
