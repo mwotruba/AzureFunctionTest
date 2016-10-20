@@ -1,5 +1,11 @@
+#r "Newtonsoft.Json"
+
+using System;
+
 using System;
 using System.Net;
+using Newtonsoft.Json;
+
 
 private static readonly string AppKey = "bbf5fb8c8b5733365893886826af5724";
 
@@ -39,7 +45,12 @@ public static void Run(TimerInfo myTimer, string cities, out string outputEventH
         // read response
         ws =  wr.GetResponseStream();
         reader = new StreamReader(ws);
-        string json = reader.ReadToEnd();
+        string rawJson = reader.ReadToEnd();
+
+        var obj = JsonConvert.DeserializeObject(rawJson); 
+        string json = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented);
+
+
         log.Info($"json.length={json.Length}");
         log.Info(json);
         
