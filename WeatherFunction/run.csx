@@ -61,6 +61,7 @@ public static void Run(TimerInfo myTimer, string cities, out string outputEventH
     } catch(Exception exc)
     {
       log.Error($"Fehler in Funktion: {exc.Message}");
+      outputEventHubMessage = null;
     }
     finally
     {            
@@ -69,6 +70,6 @@ public static void Run(TimerInfo myTimer, string cities, out string outputEventH
         if(reader != null) reader.Close();
         if(ws !=null) ws.Dispose();    
 
-        outputEventHubMessage = null;
+        
     }
 }    
