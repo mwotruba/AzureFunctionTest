@@ -41,6 +41,7 @@ public static void Run(TimerInfo myTimer, string cities, out string outputEventH
         reader = new StreamReader(ws);
         string json = reader.ReadToEnd();
         log.Info($"json.length={json.Length}");
+        log.Info(json);
         
         // send message
         outputEventHubMessage = json;
