@@ -12,6 +12,8 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
 {
     DateTime start = DateTime.Now;
 
+    outputEventHubMessage = null;
+
     log.Info($"C# time triggered function called with pattern: {myTimer.Schedule} at {DateTime.Now}");
     log.Info(myTimer.FormatNextOccurrences(3));
 
