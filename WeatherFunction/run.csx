@@ -8,7 +8,7 @@ private static readonly string AppKey = "bbf5fb8c8b5733365893886826af5724";
 
 public static void Run(TimerInfo myTimer, out string outputEventHubMessage, TraceWriter log)
 {
-    DateTime start = new DateTime.Now;
+    DateTime start = DateTime.Now;
 
     log.Info($"C# time triggered function called with pattern: {myTimer.Schedule} at {DateTime.Now}");
     log.Info(myTimer.FormatNextOccurrences(3));
