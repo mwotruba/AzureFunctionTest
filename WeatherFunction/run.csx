@@ -65,14 +65,21 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
                 reader = new StreamReader(ws);
                 string rawJson = reader.ReadToEnd();
 
-                var obj = JsonConvert.DeserializeObject(rawJson);
-                string json = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented);
+                JObject rss = JObject.Parse(rawJson);
+                int cnt = (int)rss["cnt"];
+                if (cnt > 0)
+                {
+                    string json = rawJson;
+                    log.Info($"json.length={json.Length}");
+                    log.Info(json);
 
-                log.Info($"json.length={json.Length}");
-                log.Info(json);
-                
-                // send message
-                outputEventHubMessage = json;
+                    // send message
+                    outputEventHubMessage = json;
+                }
+                else
+                {
+                    log.Info("skip event because of zero items");
+                }
                 
                 int delay = 1000;
                 log.Info($"{i}/{anzStepsLon * anzStepsLat} OK -> warte {delay/1000.0} sec");
