@@ -28,7 +28,7 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
     //     lat (90..-90)  nord -> south
     int anzStepsLon = 30;
     int anzStepsLat = 16;
-asjhgdhgasjhg;
+
     double deltaLon = 360.0 / anzStepsLon;
     double deltaLat = 180.0 / anzStepsLat;
     
